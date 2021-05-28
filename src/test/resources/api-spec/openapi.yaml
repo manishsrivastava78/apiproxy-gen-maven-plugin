@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info:
+  title: os-fixed-ips
+  version: Unknown
+servers:
+- url: https://test.com/auth/v1
+paths:
+  /v2/{tenant_id}/os-fixed-ips/{fixed_ip}:
+    get:
+      summary: Show fixed IP information
+      description: |
+        Shows information for a specified fixed IP address.
+      operationId: showIP
+      parameters:
+      - name: tenant_id
+        in: path
+        description: |
+          The ID for the tenant or account in a multi-tenancy cloud.
+        required: true
+        schema:
+          type: string
+      - name: fixed_ip
+        in: path
+        description: |
+          The fixed IP of interest to you.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: 200 response
+          content:
+            application/json:
+              example: |-
+                {
+                    "fixed_ip": {
+                        "cidr": "192.168.1.0/24",
+                        "hostname": "openstack",
+                        "host": "host",
+                        "address": "192.168.1.1"
+                    }
+                }
+  /v2/{tenant_id}/os-fixed-ips/{fixed_ip}/action:
+    post:
+      summary: Reserve or release a fixed IP
+      description: |
+        Reserves or releases a fixed IP.
+      operationId: reserveIP
+      parameters:
+      - name: tenant_id
+        in: path
+        description: |
+          The ID for the tenant or account in a multi-tenancy cloud.
+        required: true
+        schema:
+          type: string
+      - name: fixed_ip
+        in: path
+        description: |
+          The fixed IP of interest to you.
+        required: true
+        schema:
+          type: string
+      responses:
+        202:
+          description: 202 response
+          content: {}
+components: {}

@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.tcs.cma.apis</groupId>
+	<artifactId>project-to-test</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>ApigeeProxyGeneratorTest</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.tcs.cma.apis.tools</groupId>
+				<artifactId>apiproxy-gen-maven-plugin</artifactId>
+				<version>1.0.2</version>
+				<configuration>
+					<apiProxyName>pet-store</apiProxyName>
+					<apiDefinition>src/test/resources/api-spec/openapi.yaml</apiDefinition>
+					<apiProxyEndConfig>src/test/resources/common-policy-config/apiproxy-end.json</apiProxyEndConfig>
+					<apiTargetEndConfig>src/test/resources/common-policy-config/apiproxy-target-end.json</apiTargetEndConfig>
+					<commonPolicyDirectory>src/test/resources/common-policy-config/required-policies</commonPolicyDirectory>
+					<apiProxyEnvDir>src/test/resources/common-policy-config/env</apiProxyEnvDir>
+					<apiProxyTestDir>src/test/resources/common-policy-config/test</apiProxyTestDir>
+					<apiProxyManifest>src/test/resources/common-policy-config/manifest.json</apiProxyManifest>
+					<apiProxyGitIgnore>src/test/resources/common-policy-config/.gitignore</apiProxyGitIgnore>
+					<apiProxyPackageJson>src/test/resources/common-policy-config/package.json</apiProxyPackageJson>
+					<apiProxySourceDirectory>.</apiProxySourceDirectory>
+					<apiProxyDestinationDirectory>./Proxy-Test/</apiProxyDestinationDirectory>
+					<exampleJs>src/test/resources/common-policy-config/required-policies/js/example.js</exampleJs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

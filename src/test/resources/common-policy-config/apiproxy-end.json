@@ -1,0 +1,8 @@
+{
+"apiDefaultFaultRule":"FLC-CommonErrorHandling",
+"apiPreFlowRequest":"ASM-ConfigurationVariables;FLC-CommonProxyRequestPreFlow",
+"apiPostFlowRequest":"FLC-CommonProxyRequestPostFlow",
+"apiPostFlowResponse":"FLC-CommonProxyResponsePostFlow",
+"apiProxyUnknownResource":"RAF-NotFound",
+"apiProxyVirtualHosts":"secure"
+}
